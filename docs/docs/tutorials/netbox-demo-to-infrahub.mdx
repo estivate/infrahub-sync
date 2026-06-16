@@ -75,28 +75,17 @@ For more about supported adapters and their Python requirements, see the
 
 ## Start Infrahub locally
 
-Clone Infrahub and start it with Docker Compose. If you already have a local
-clone, update it instead of cloning a second copy.
+Clone Infrahub and start it with Docker Compose.
 
 ```bash
 cd ~/repos
-if [ ! -d infrahub ]; then
-  git clone https://github.com/opsmill/infrahub.git
-fi
+git clone https://github.com/opsmill/infrahub.git
 cd infrahub
-git pull --ff-only
 docker compose up -d
 ```
 
-Wait for the containers to start and for the web server to answer:
-
-```bash
-until curl -fsS http://localhost:8000 >/dev/null; do
-  sleep 5
-done
-```
-
-Open [the local Infrahub web interface](http://localhost:8000).
+Wait for the containers to start and then open
+[the local Infrahub web interface](http://localhost:8000).
 
 Log in with the default local credentials:
 
@@ -435,9 +424,6 @@ cd ~/repos/infrahub
 docker compose down --remove-orphans
 docker compose up -d
 ```
-
-If you intentionally run another Infrahub stack on port 8000, stop it first or
-run this tutorial in a separate environment.
 
 ### NetBox authentication fails
 
